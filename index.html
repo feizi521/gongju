@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梦喻解梦 - 首页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 bg-black bg-opacity-70 backdrop-blur-md z-50 border-b border-purple-900">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold text-purple-400">梦喻解梦</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-purple-300 hover:text-purple-100 transition-colors">首页</a>
+                <a href="history.html" class="text-purple-300 hover:text-purple-100 transition-colors">梦境日记</a>
+                <a href="dictionary.html" class="text-purple-300 hover:text-purple-100 transition-colors">梦境词典</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-purple-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-black bg-opacity-90 backdrop-blur-md border-t border-purple-900">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="index.html" class="text-purple-300 hover:text-purple-100 transition-colors py-2">首页</a>
+                <a href="history.html" class="text-purple-300 hover:text-purple-100 transition-colors py-2">梦境日记</a>
+                <a href="dictionary.html" class="text-purple-300 hover:text-purple-100 transition-colors py-2">梦境词典</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="container mx-auto px-4 pt-24 pb-16">
+        <div class="max-w-4xl mx-auto">
+            <!-- 标题 -->
+            <div class="text-center mb-10">
+                <h1 class="text-4xl md:text-5xl font-bold text-purple-300 mb-4">梦喻解梦</h1>
+                <p class="text-purple-200 text-lg">探索梦境的奥秘，解读内心的声音</p>
+            </div>
+
+            <!-- 输入区域 -->
+            <div class="bg-gradient-to-br from-purple-900/40 to-blue-900/40 backdrop-blur-md rounded-xl shadow-lg p-6 border border-purple-800/50 mb-8">
+                <h2 class="text-2xl font-semibold text-purple-300 mb-4">描述你的梦境</h2>
+                <textarea id="dream-input" class="w-full bg-black/30 border border-purple-700/50 rounded-lg p-4 text-purple-100 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none" rows="5" placeholder="请详细描述你的梦境..."></textarea>
+                
+                <!-- 快捷标签 -->
+                <div class="mt-4">
+                    <p class="text-purple-300 mb-2">常见梦境标签：</p>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="tag-btn bg-purple-800/40 hover:bg-purple-700/60 text-purple-200 px-3 py-1 rounded-full text-sm transition-colors">被追赶</button>
+                        <button class="tag-btn bg-purple-800/40 hover:bg-purple-700/60 text-purple-200 px-3 py-1 rounded-full text-sm transition-colors">飞翔</button>
+                        <button class="tag-btn bg-purple-800/40 hover:bg-purple-700/60 text-purple-200 px-3 py-1 rounded-full text-sm transition-colors">坠落</button>
+                        <button class="tag-btn bg-purple-800/40 hover:bg-purple-700/60 text-purple-200 px-3 py-1 rounded-full text-sm transition-colors">考试</button>
+                        <button class="tag-btn bg-purple-800/40 hover:bg-purple-700/60 text-purple-200 px-3 py-1 rounded-full text-sm transition-colors">蛇</button>
+                        <button class="tag-btn bg-purple-800/40 hover:bg-purple-700/60 text-purple-200 px-3 py-1 rounded-full text-sm transition-colors">水</button>
+                        <button class="tag-btn bg-purple-800/40 hover:bg-purple-700/60 text-purple-200 px-3 py-1 rounded-full text-sm transition-colors">已故亲人</button>
+                        <button class="tag-btn bg-purple-800/40 hover:bg-purple-700/60 text-purple-200 px-3 py-1 rounded-full text-sm transition-colors">噩梦</button>
+                        <button class="tag-btn bg-purple-800/40 hover:bg-purple-700/60 text-purple-200 px-3 py-1 rounded-full text-sm transition-colors">动物</button>
+                        <button class="tag-btn bg-purple-800/40 hover:bg-purple-700/60 text-purple-200 px-3 py-1 rounded-full text-sm transition-colors">迷路</button>
+                    </div>
+                </div>
+
+                <!-- 解梦按钮 -->
+                <div class="mt-6">
+                    <button id="analyze-btn" class="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-3 rounded-lg transition-colors">开始解梦</button>
+                </div>
+            </div>
+
+            <!-- 解梦结果 -->
+            <div id="result-container" class="hidden bg-gradient-to-br from-purple-900/40 to-blue-900/40 backdrop-blur-md rounded-xl shadow-lg p-6 border border-purple-800/50 mb-8">
+                <h2 class="text-2xl font-semibold text-purple-300 mb-4">解梦结果</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-medium text-purple-200 mb-2">传统周公解梦</h3>
+                    <p id="traditional-interpretation" class="text-purple-100 leading-relaxed"></p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-medium text-purple-200 mb-2">寓意解读</h3>
+                    <p id="meaning-interpretation" class="text-purple-100 leading-relaxed"></p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-medium text-purple-200 mb-2">心理暗示</h3>
+                    <p id="psychological-interpretation" class="text-purple-100 leading-relaxed"></p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-medium text-purple-200 mb-2">生活暗示</h3>
+                    <p id="life-interpretation" class="text-purple-100 leading-relaxed"></p>
+                </div>
+
+                <!-- 保存按钮 -->
+                <div class="mt-6 flex justify-center">
+                    <button id="save-btn" class="bg-purple-700/60 hover:bg-purple-600/80 text-white font-semibold py-2 px-6 rounded-lg transition-colors">保存本次解梦</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-black bg-opacity-70 backdrop-blur-md border-t border-purple-900 py-6">
+        <div class="container mx-auto px-4 text-center text-purple-400">
+            <p>梦喻解梦 © 2026</p>
+            <p class="text-sm text-purple-500 mt-2">纯前端静态网站，本地运行</p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

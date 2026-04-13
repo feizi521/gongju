@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梦喻解梦 - 梦境日记</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 bg-black bg-opacity-70 backdrop-blur-md z-50 border-b border-purple-900">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold text-purple-400">梦喻解梦</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-purple-300 hover:text-purple-100 transition-colors">首页</a>
+                <a href="history.html" class="text-purple-300 hover:text-purple-100 transition-colors">梦境日记</a>
+                <a href="dictionary.html" class="text-purple-300 hover:text-purple-100 transition-colors">梦境词典</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-purple-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-black bg-opacity-90 backdrop-blur-md border-t border-purple-900">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="index.html" class="text-purple-300 hover:text-purple-100 transition-colors py-2">首页</a>
+                <a href="history.html" class="text-purple-300 hover:text-purple-100 transition-colors py-2">梦境日记</a>
+                <a href="dictionary.html" class="text-purple-300 hover:text-purple-100 transition-colors py-2">梦境词典</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="container mx-auto px-4 pt-24 pb-16">
+        <div class="max-w-4xl mx-auto">
+            <!-- 标题 -->
+            <div class="text-center mb-10">
+                <h1 class="text-4xl md:text-5xl font-bold text-purple-300 mb-4">梦境日记</h1>
+                <p class="text-purple-200 text-lg">记录你的梦境与解读</p>
+            </div>
+
+            <!-- 清空按钮 -->
+            <div class="flex justify-end mb-6">
+                <button id="clear-all-btn" class="bg-red-800/40 hover:bg-red-700/60 text-red-200 px-4 py-2 rounded-lg transition-colors">清空全部记录</button>
+            </div>
+
+            <!-- 记录列表 -->
+            <div id="history-list" class="space-y-6">
+                <!-- 记录项将通过JavaScript动态生成 -->
+            </div>
+
+            <!-- 空状态 -->
+            <div id="empty-state" class="hidden text-center py-16">
+                <p class="text-purple-300 text-xl">暂无梦境记录</p>
+                <p class="text-purple-400 mt-2">去首页开始你的第一次解梦吧</p>
+                <a href="index.html" class="mt-4 inline-block bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">开始解梦</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-black bg-opacity-70 backdrop-blur-md border-t border-purple-900 py-6">
+        <div class="container mx-auto px-4 text-center text-purple-400">
+            <p>梦喻解梦 © 2026</p>
+            <p class="text-sm text-purple-500 mt-2">纯前端静态网站，本地运行</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
